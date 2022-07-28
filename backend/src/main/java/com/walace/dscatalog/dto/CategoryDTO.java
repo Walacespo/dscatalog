@@ -8,7 +8,7 @@ public class CategoryDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
-	private String nome;
+	private String name;
 	
 	public CategoryDTO() {
 		
@@ -16,13 +16,13 @@ public class CategoryDTO implements Serializable {
 	
 	public CategoryDTO(Category entity) {
 		this.id = entity.getId();
-		this.nome = entity.getNome();
+		this.name = entity.getNome();
 	}
 
 	public CategoryDTO(Long id, String nome) {
 		super();
 		this.id = id;
-		this.nome = nome;
+		this.name = nome;
 	}
 
 	public Long getId() {
@@ -34,11 +34,11 @@ public class CategoryDTO implements Serializable {
 	}
 
 	public String getNome() {
-		return nome;
+		return name;
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.name = nome;
 	}
 	
 	

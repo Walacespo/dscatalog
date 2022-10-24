@@ -21,7 +21,7 @@ import com.walace.dscatalog.components.JwtTokenEnhancer;
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
-	
+
 	@Value("${security.oauth2.client.client-id}")
 	private String clientId;
 	
@@ -30,7 +30,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	
 	@Value("${jwt.duration}")
 	private Integer jwtDuration;
-
+	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
@@ -71,6 +71,5 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		.tokenStore(tokenStore)
 		.accessTokenConverter(accessTokenConverter)
 		.tokenEnhancer(chain);
-		
 	}
 }

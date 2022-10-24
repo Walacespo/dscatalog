@@ -36,7 +36,7 @@ public class UserService implements UserDetailsService {
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
-
+	
 	@Autowired
 	private UserRepository repository;
 	
@@ -99,12 +99,13 @@ public class UserService implements UserDetailsService {
 		entity.getRoles().clear();
 		for (RoleDTO roleDto : dto.getRoles()) {
 			Role role = roleRepository.getOne(roleDto.getId());
-			entity.getRoles().add(role);			
+			entity.getRoles().add(role);
 		}
 	}
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		
 		User user = repository.findByEmail(username);
 		if (user == null) {
 			logger.error("User not found: " + username);
@@ -112,5 +113,5 @@ public class UserService implements UserDetailsService {
 		}
 		logger.info("User found: " + username);
 		return user;
-	}	
+	}
 }
